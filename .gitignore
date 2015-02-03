@@ -37,5 +37,5 @@ Module.symvers
 *.x86_64
 *.hex
 *.creator.user
-# running-prog
-# read-phy-mem
+running-prog
+read-phy-mem
