@@ -2,7 +2,7 @@ SRCS = $(wildcard *.c)
         OBJS = $(SRCS:.c = .o)
         TARGET = $(shell pwd | rev | awk -F \/ '{print $$1}' | rev)
         CC = gcc
-        CCFLAGS = -g -Wall -m32
+        CCFLAGS = -g -Wall
 
 all : $(OBJS)
 	$(CC) $^  -o $(TARGET) $(CCFLAGS)

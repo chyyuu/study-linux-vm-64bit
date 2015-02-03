@@ -9,13 +9,6 @@
 #include <linux/highmem.h>
 
 
-typedef unsigned char   u8;
-typedef unsigned short  u16;
-typedef signed short    s16;
-typedef int             s32;
-typedef unsigned int    u32;
-typedef unsigned long long u64;
-
 
 #define PHY_DEV_NAME "phy_mem"
 
@@ -61,7 +54,7 @@ ssize_t phy_mem_read(struct file *filp, char __user *buf, size_t count, loff_t *
     struct page *page;
     int page_num, page_offset;
     char *from;
-    u32 ret;
+    int ret;
 
     page_num = *f_pos / PAGE_SIZE;
     page_offset = *f_pos % PAGE_SIZE;
