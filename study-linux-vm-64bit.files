@@ -1,0 +1,6 @@
+apps/read-phy-mem/main.c
+apps/running-prog/main.c
+modules/phy_mem/phy_mem.c
+modules/phy_mem/phy_mem.mod.c
+modules/sys_reg/sys_reg.c
+modules/sys_reg/sys_reg.mod.c
