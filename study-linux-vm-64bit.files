@@ -1,6 +1,5 @@
-apps/read-phy-mem/main.c
-apps/running-prog/main.c
+Makefile
+modules/phy_mem/Makefile
 modules/phy_mem/phy_mem.c
-modules/phy_mem/phy_mem.mod.c
+modules/sys_reg/Makefile
 modules/sys_reg/sys_reg.c
-modules/sys_reg/sys_reg.mod.c

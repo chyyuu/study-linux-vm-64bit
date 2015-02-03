@@ -33,4 +33,4 @@ dropbox:
 
 .PHONY:update_files
 update_files:
-	git ls-files "*Makefile" "*.c" "*.h" "*.s" > study-linux-vm-32bit.files
+	git ls-files "*Makefile" "*.c" "*.h" "*.s" > study-linux-vm-64bit.files
