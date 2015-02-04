@@ -1,8 +1,8 @@
-# study-linux-vm-32bit
+# study-linux-vm-64bit
 
-[study-linux-vm-32bit](https://github.com/ziyang3721/study-linux-vm-32bit)
+[study-linux-vm-64bit](https://github.com/ziyang3721/study-linux-vm-64bit)
 
-本文是配合 [该文章](http://ziyang3721.github.io/2015/02/02/study-linux-vm-32bit.html)  使用.
+本文是配合 [该文章](http://ziyang3721.github.io/2015/02/03/study-linux-vm-64bit.html)  使用.
 
 # 使用方式
 make  
@@ -26,5 +26,5 @@ sudo ./read-phy-mem addr len
 
 
 # status
-本程序在 i386 linux mint 14, kernel 3.5.0-17 模式下测试通过.
+本程序在 x86-64 linux mint 17, kernel 3.13.0-24 模式下测试通过.
 
