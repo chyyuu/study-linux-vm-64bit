@@ -13,20 +13,12 @@
 
 
 
-typedef unsigned short  u16;
-typedef signed short    s16;
-typedef int             s32;
-typedef unsigned int    u32;
-typedef unsigned int    uint32;
-typedef unsigned long long u64;
-
-
-
-uint32 utl_str2int(void *str)
+unsigned long utl_str2int(void *str)
 {
-    uint32 rst=0;
-    uint32  i,tmp=0,len;
-    uint32 sign,val;
+    unsigned long rst=0;
+    unsigned long tmp = 0;
+    int  i, len;
+    int sign,val;
     char *ptr = str;
 
     len = strlen((char *)ptr);
@@ -49,6 +41,7 @@ uint32 utl_str2int(void *str)
             else break;
             //rst = (rst<<4) + tmp;
         }
+        printf("rst = %lx\n", rst);
         return rst;
     }
     else{
@@ -81,10 +74,10 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    u64 addr = (u64)utl_str2int(argv[1]);
-    u32 size = utl_str2int(argv[2]);
+    unsigned long addr = utl_str2int(argv[1]);
+    int size = utl_str2int(argv[2]);
 
-    printf("read from 0x%llX, size %d\n", addr, size);
+    printf("read from 0x%lX, size %d\n", addr, size);
 
 
     int fd = open("/dev/phy_mem", O_RDONLY);
@@ -93,7 +86,7 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    addr = addr & 0xFFFFFFF8;
+    addr = addr & 0xFFFFFFFFFFFFFFF8L;
     if(size > 256){
         size = 256;
     }
@@ -102,13 +95,13 @@ int main(int argc, char *argv[])
     }
     size = (size + 7) & 0xFFFFFFF8;
 
-    __off64_t off = lseek64(fd, addr, SEEK_SET);
+    __off64_t off = lseek64(fd, (__off64_t)addr, SEEK_SET);
     if(off < 0){
         printf("lseek fail\n");
         return 0;
     }
 
-    u32 buf[256 / 4];
+    unsigned int buf[256 / 4];
     int read_size = read(fd, (char*)buf, size);
     if(read_size < 0){
         printf("read failed\n");
@@ -117,7 +110,7 @@ int main(int argc, char *argv[])
 
     int i;
     for(i = 0; i< size / 8; i++){
-        printf("%#llX:\t\t %08x  %08x \n", addr + i * 8, buf[2 * i], buf[2 * i + 1]);
+        printf("%#lX:\t\t %08x  %08x \n", addr + i * 8, buf[2 * i], buf[2 * i + 1]);
     }
 
     close(fd);

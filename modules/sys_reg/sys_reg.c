@@ -27,7 +27,7 @@ static int sys_reg_show(struct seq_file *m, void *v)
 
     cr3 = read_cr3();
     seq_printf(m, "cr3 = 0x%lX\n", cr3);
-    seq_printf(m, "CR3 PT Base = 0x%lX\n", cr3 & 0xFFFFFFFFFFFFF000);;
+    seq_printf(m, "CR3 PT Base = 0x%lX\n", cr3 & 0xFFFFFFFFFFFFF000L);;
 
     return 0;
 }

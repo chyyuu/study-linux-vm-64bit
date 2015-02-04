@@ -45,7 +45,7 @@ int main()
 {
     a = 0xA5A5AA550000FFFF;
 
-    printf("a = %lX, addr: 0x%p \n", a, &a);
+    printf("a = %lX, addr: %p \n", a, &a);
 
 
     print_sys_reg_info();
